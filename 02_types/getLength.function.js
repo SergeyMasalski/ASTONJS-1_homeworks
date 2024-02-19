@@ -1,3 +1,5 @@
 function getLength(item) {
-  return typeof item === 'string' || Array.isArray(item) ? item.length : 0;
+  if (item.length) return console.log(item.length);
+
+  console.log(0);
 }
