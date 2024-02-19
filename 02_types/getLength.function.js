@@ -1,5 +1,8 @@
 function getLength(item) {
   switch (true) {
+    case item === null:
+      console.log(0);
+      break;
     case !!item?.length:
       console.log(item.length);
       break;
