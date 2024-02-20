@@ -22,7 +22,7 @@ function deepEqual(nodeOne, nodeTwo) {
   for (const key of keysNodeOne) {
     if (nodeOne[key] !== nodeTwo[key] && typeof nodeOne[key] !== 'object' && typeof nodeTwo[key] !== 'object') return false;
 
-    if (!compare(nodeOne[key], nodeTwo[key])) {
+    if (!deepEqual(nodeOne[key], nodeTwo[key])) {
       return false;
     }
   }
