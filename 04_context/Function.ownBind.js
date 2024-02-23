@@ -19,13 +19,14 @@ Function.prototype.customBind = function (context, ...args) {
 // };
 
 // Third method
-// Function.prototype.customBind = function (context, ...args) {
-//   const self = this;
+Function.prototype.customBind = function (context, ...args) {
+  const self = this;
 
-//   return function () {
-//     context.method = self;
-//     const result = context.method(...args);
-//     delete context.method;
-//     return result;
-//   };
-// };
+  return function () {
+    const prototype = Object.getPrototypeOf(context);
+    prototype.method = self;
+    const result = context.method(...args);
+    delete prototype.method;
+    return result;
+  };
+};
