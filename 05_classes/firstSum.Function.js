@@ -26,15 +26,17 @@
 
 // Second method
 
-function firstSum(arr, total) {
+function firstSum(arr = [], total) {
   const addItemCollection = new Map();
+
+  arr.forEach((item) => {
+    addItemCollection.set(item, '');
+  });
 
   for (let item of arr) {
     const addItem = total - item;
 
-    if (addItemCollection.has(addItem)) return [addItem, item];
-
-    addItemCollection.set(item, item);
+    if (addItemCollection.has(addItem)) return [item, addItem];
   }
 
   return 'Incorrect array or sum';
@@ -42,4 +44,4 @@ function firstSum(arr, total) {
 
 // Map реализован на механизме схожем с хеш-таблицами, соответственно доступ к значению будет иметь
 // сложность O(1) и мы зависим от длины массива переданных данных, то есть от n. Соответственно
-// сложность алгоритма О(n)
+// сложность алгоритма О(2n)
