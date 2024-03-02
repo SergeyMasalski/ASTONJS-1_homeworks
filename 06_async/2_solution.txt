@@ -1,0 +1,16 @@
+let promiseTree = new Promise((resolve, reject) => {
+resolve("a"); // no then
+console.log("1");
+setTimeout(() => {
+console.log("2");
+}, 0);
+console.log("3");
+});
+
+taskQueue: [2]
+mikrotaskQueue:[a]
+
+Output:
+1
+3
+2
