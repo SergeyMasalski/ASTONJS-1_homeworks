@@ -1,0 +1,25 @@
+let promiseTwo = new Promise((resolve, reject) => {
+resolve("a");
+});
+promiseTwo
+.then((res) => {
+return res + "b";
+})
+.then((res) => {
+return res + "с";
+})
+.finally((res) => {
+return res + "!!!!!!!";
+}) // ignore
+.catch((res) => {
+return res + "d";
+}) // ignore
+.then((res) => {
+console.log(res);
+});
+
+taskQueue: []
+mikrotaskQueue:[]
+
+Output:
+abc
